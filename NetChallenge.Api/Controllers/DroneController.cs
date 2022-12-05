@@ -18,6 +18,16 @@ namespace NetChallenge.Api.Controllers
         [HttpPost()]
         public async Task<ActionResult> CreateAsync([FromBody] Input request)
         {
+            if (!request.DronesAssigned.Any())
+            {
+                return BadRequest("There is no drones");
+            }
+
+            if (request.DronesAssigned.Count > 100)
+            {
+                return BadRequest("Max number of Drones is 100");
+            }
+
             var response = await _droneService.CreateAsync(request);
             return Ok(response);
         }
