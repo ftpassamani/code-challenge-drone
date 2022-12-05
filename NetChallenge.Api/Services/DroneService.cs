@@ -9,5 +9,10 @@ namespace NetChallenge.Api.Services
         {
             return new Output();
         }
+
+        public async Task<Output> GetAsync()
+        {
+            return new Output();
+        }
     }
 }

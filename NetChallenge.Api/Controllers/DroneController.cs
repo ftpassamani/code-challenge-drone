@@ -21,5 +21,12 @@ namespace NetChallenge.Api.Controllers
             var response = await _droneService.CreateAsync(request);
             return Ok(response);
         }
+
+        [HttpGet()]
+        public async Task<ActionResult> GetAsync()
+        {
+            var response = await _droneService.GetAsync();
+            return Ok(response);
+        }
     }
 }
